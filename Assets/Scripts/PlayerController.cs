@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float horizontalInput;
+    public float horizontalInput, verticalInput;
     public float speed = 10.0f;
     public float xRange = 10.0f;
     public GameObject projectilePrefab;
@@ -25,7 +25,9 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
         horizontalInput = Input.GetAxis("Horizontal");
+        verticalInput = Input.GetAxis("Vertical");
         transform.Translate(Time.deltaTime * Vector3.right * horizontalInput * speed);
+        transform.Translate(Time.deltaTime * Vector3.forward * verticalInput * speed);
 
         if (Input.GetKeyDown(KeyCode.Space)) {
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
