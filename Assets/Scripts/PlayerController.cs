@@ -36,6 +36,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Game over");
+        if (other.gameObject.name != "Food_Pizza_01(Clone)")
+        {
+            Debug.Log("Game Over");
+        }
     }
 }
