@@ -48,4 +48,10 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    public void addScore()
+    {
+        score++;
+        Debug.Log("Score: " + score);
+    }
 }
